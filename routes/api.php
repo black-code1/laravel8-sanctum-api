@@ -19,6 +19,15 @@ Route::get('/products', function () {
     return Product::all();
 });
 
+Route::post('/products', function () {
+    return Product::create([
+        'name' => 'Product name 1',
+        'slug' => 'product-name-1',
+        'description' => 'This is product 1',
+        'price' => '99.99'
+    ]);
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
